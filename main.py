@@ -8,6 +8,8 @@ bot = telebot.TeleBot(TOKEN, 'HTML')
 
 @bot.message_handler(commands=['start'])
 def start(message):
-    bot.send_message(message.chat.id, text='connect')
+    key = telebot.types.ReplyKeyboardMarkup(True)
+    key.add('item')
+    bot.send_message(message.chat.id, text='connect', reply_markup=key)
 
 bot.polling()
